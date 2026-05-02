@@ -79,6 +79,7 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 <img width="963" height="374" alt="exploitation_and_2ndkey" src="https://github.com/user-attachments/assets/87298451-4dc5-4525-972f-07177be542b3" />
 <img width="1920" height="695" alt="cracking_hash" src="https://github.com/user-attachments/assets/38caae38-ad4d-41ab-bf96-8f53e6881983" />
 ---
+
 ### Privilege Escalation (SUID Misconfiguration)
 
 * **Severity:** Critical
