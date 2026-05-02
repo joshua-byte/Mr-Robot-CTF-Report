@@ -53,7 +53,6 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 * Accessed `/robots.txt` revealing hidden paths
 <img width="956" height="350" alt="robots txt" src="https://github.com/user-attachments/assets/42fddf5a-4e08-4381-8b21-d032fdf10440" />
 
-
 ---
 
 ### 🔴 Credential Exposure & Weak Authentication
@@ -66,9 +65,7 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 
 * Username discovery via enumeration
 * Password cracked using wordlist
-* *(Add screenshot: login success)*
 
----
 
 ### 🔴 Remote Code Execution (Reverse Shell)
 
@@ -78,7 +75,7 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 
 **Proof:**
 
-* Reverse shell established
+* Reverse shell established and cracking the 2nd hash to recover the 2nd flag
 <img width="963" height="374" alt="exploitation_and_2ndkey" src="https://github.com/user-attachments/assets/87298451-4dc5-4525-972f-07177be542b3" />
 
 
