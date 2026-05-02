@@ -51,7 +51,8 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 **Proof:**
 
 * Accessed `/robots.txt` revealing hidden paths
-* *(Add screenshot: robots.txt output)*
+<img width="956" height="350" alt="robots txt" src="https://github.com/user-attachments/assets/42fddf5a-4e08-4381-8b21-d032fdf10440" />
+
 
 ---
 
@@ -78,7 +79,8 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 **Proof:**
 
 * Reverse shell established
-* *(Add screenshot: shell connection)*
+<img width="963" height="374" alt="exploitation_and_2ndkey" src="https://github.com/user-attachments/assets/87298451-4dc5-4525-972f-07177be542b3" />
+
 
 ---
 
