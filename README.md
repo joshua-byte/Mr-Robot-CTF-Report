@@ -1,6 +1,6 @@
 # Web Application Penetration Test Case Study – Mr Robot Lab
 
-## 📌 Overview
+## Overview
 
 This project simulates a web application penetration test conducted on the Mr Robot vulnerable machine. The objective was to identify vulnerabilities, exploit weaknesses, and achieve full system compromise.
 
@@ -8,7 +8,7 @@ The assessment demonstrates real-world attack techniques including web enumerati
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 * Perform reconnaissance and service enumeration
 * Identify web application vulnerabilities
@@ -18,7 +18,7 @@ The assessment demonstrates real-world attack techniques including web enumerati
 
 ---
 
-## 🧱 Target Environment
+## Target Environment
 
 * Target Machine: Mr Robot (Vulnerable VM)
 * Attacker Machine: Kali Linux
@@ -26,13 +26,13 @@ The assessment demonstrates real-world attack techniques including web enumerati
 
 ---
 
-## ⚔️ Methodology
+## Methodology
 
 Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Reporting
 
 ---
 
-## 🔍 Attack Surface
+## Attack Surface
 
 * Web Server (HTTP)
 * WordPress CMS
@@ -40,9 +40,9 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 
 ---
 
-## 🔍 Findings
+## Findings
 
-### 🔴 Sensitive Information Disclosure (robots.txt)
+### Sensitive Information Disclosure (robots.txt)
 
 * **Severity:** Medium
 * **Description:** robots.txt exposed hidden directories and sensitive files
@@ -55,47 +55,46 @@ Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Rep
 
 ---
 
-### 🔴 Credential Exposure & Weak Authentication
+### Credential Exposure & Weak Authentication
 
 * **Severity:** High
 * **Description:** Credentials were discoverable through enumeration and reused across services
-* **Impact:** Unauthorized access to administrative interface
+* **Impact:** Unauthorized access to the administrative interface
 
 **Proof:**
 
 * Username discovery via enumeration
-* Password cracked using wordlist
+* Password cracked using a wordlist using Hydra
 
-
-### 🔴 Remote Code Execution (Reverse Shell)
+### Remote Code Execution (Reverse Shell)
 
 * **Severity:** Critical
-* **Description:** File upload or command execution vulnerability enabled reverse shell access
+* **Description:** File upload or command execution vulnerability enabled reverse shell access into the 404.php in the editor section
 * **Impact:** Full control of the target system
 
 **Proof:**
 
 * Reverse shell established and cracking the 2nd hash to recover the 2nd flag
+<img width="958" height="939" alt="404" src="https://github.com/user-attachments/assets/8c006a45-811c-463b-a569-5036a0befa88" />
 <img width="963" height="374" alt="exploitation_and_2ndkey" src="https://github.com/user-attachments/assets/87298451-4dc5-4525-972f-07177be542b3" />
-
-
+<img width="1920" height="695" alt="cracking_hash" src="https://github.com/user-attachments/assets/38caae38-ad4d-41ab-bf96-8f53e6881983" />
 ---
-
-### 🔴 Privilege Escalation (SUID Misconfiguration)
+### Privilege Escalation (SUID Misconfiguration)
 
 * **Severity:** Critical
-* **Description:** Misconfigured SUID binary allowed privilege escalation
+* **Description:** Misconfigured SUID binary allowed privilege escalation and using nmap interactive to execute shell commands
 * **Impact:** Root-level access achieved
 
 **Proof:**
 
 * Exploited SUID binary
 * `whoami → root`
-* *(Add screenshot: root shell)*
+<img width="962" height="278" alt="find_priv_vul" src="https://github.com/user-attachments/assets/b92bf85e-d16e-4628-996f-c76e3711e443" />
+<img width="962" height="458" alt="thirdkey" src="https://github.com/user-attachments/assets/e752ad4f-b9a1-4449-84dc-ecdcab6c96be" />
 
 ---
 
-## 🔗 Attack Chain
+## Attack Chain
 
 ```id="mrrobotchain"
 Reconnaissance
@@ -109,9 +108,7 @@ Reverse Shell → System Access
 SUID Exploit → Privilege Escalation → Root Access
 ```
 
----
-
-## 📊 Impact Assessment
+## Impact Assessment
 
 * Unauthorized access to web application
 * Credential compromise
@@ -121,9 +118,7 @@ SUID Exploit → Privilege Escalation → Root Access
 **Business Impact:**
 An attacker can gain complete control of the web server, access sensitive data, and escalate privileges to compromise the entire system.
 
----
-
-## 🛠️ Mitigation & Defensive Measures
+## Mitigation & Defensive Measures
 
 * Restrict sensitive file exposure (robots.txt)
 * Enforce strong authentication policies
@@ -131,31 +126,27 @@ An attacker can gain complete control of the web server, access sensitive data, 
 * Remove unsafe SUID configurations
 * Apply principle of least privilege
 
----
-
-## 🛠️ Tools Used
+## Tools Used
 
 * Nmap
 * Dirb / Gobuster
-* Burp Suite (optional if used)
+* Hydra
 * Netcat
 * John the Ripper
 
----
-
-## 📊 Key Takeaways
+## Key Takeaways
 
 * Information disclosure can lead to full compromise
 * Weak authentication enables attacker entry
 * Web vulnerabilities often lead to system-level compromise
 * Misconfigurations are critical security risks
 
-## 🚩 Flags Captured
+## Flags Captured
 
 * Key 1: 073403c8a58a1f80d943455fb30724b9
 * Key 2: 822c73956184f694993bede3eb39f959
 * Key 3: 04787ddef27c3dee1ee161b21670b4e4
 
-## ⚠️ Note
+## Note
 
 This project is for educational purposes only.
