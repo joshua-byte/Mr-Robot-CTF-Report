@@ -1,18 +1,155 @@
-# Mr Robot CTF – Walkthrough
+# Web Application Penetration Test Case Study – Mr Robot Lab
 
-This repository contains my penetration testing walkthrough of the Mr Robot CTF machine.
+## 📌 Overview
 
-## 🧠 Skills Demonstrated
+This project simulates a web application penetration test conducted on the Mr Robot vulnerable machine. The objective was to identify vulnerabilities, exploit weaknesses, and achieve full system compromise.
 
-* Network Reconnaissance (Nmap)
-* Web Enumeration (WordPress)
-* Exploitation (Reverse Shell)
-* Credential Cracking
-* Privilege Escalation (SUID misconfiguration)
+The assessment demonstrates real-world attack techniques including web enumeration, credential discovery, remote code execution, and privilege escalation.
 
-## 📄 Report
+---
 
-The full detailed report is available in `report.tex`.
+## 🎯 Objectives
+
+* Perform reconnaissance and service enumeration
+* Identify web application vulnerabilities
+* Exploit authentication and configuration weaknesses
+* Gain remote shell access
+* Escalate privileges to root
+
+---
+
+## 🧱 Target Environment
+
+* Target Machine: Mr Robot (Vulnerable VM)
+* Attacker Machine: Kali Linux
+* Environment: Controlled lab setup
+
+---
+
+## ⚔️ Methodology
+
+Reconnaissance → Enumeration → Exploitation → Privilege Escalation → Reporting
+
+---
+
+## 🔍 Attack Surface
+
+* Web Server (HTTP)
+* WordPress CMS
+* Hidden directories and files
+
+---
+
+## 🔍 Findings
+
+### 🔴 Sensitive Information Disclosure (robots.txt)
+
+* **Severity:** Medium
+* **Description:** robots.txt exposed hidden directories and sensitive files
+* **Impact:** Enabled discovery of key application paths and credentials
+
+**Proof:**
+
+* Accessed `/robots.txt` revealing hidden paths
+* *(Add screenshot: robots.txt output)*
+
+---
+
+### 🔴 Credential Exposure & Weak Authentication
+
+* **Severity:** High
+* **Description:** Credentials were discoverable through enumeration and reused across services
+* **Impact:** Unauthorized access to administrative interface
+
+**Proof:**
+
+* Username discovery via enumeration
+* Password cracked using wordlist
+* *(Add screenshot: login success)*
+
+---
+
+### 🔴 Remote Code Execution (Reverse Shell)
+
+* **Severity:** Critical
+* **Description:** File upload or command execution vulnerability enabled reverse shell access
+* **Impact:** Full control of the target system
+
+**Proof:**
+
+* Reverse shell established
+* *(Add screenshot: shell connection)*
+
+---
+
+### 🔴 Privilege Escalation (SUID Misconfiguration)
+
+* **Severity:** Critical
+* **Description:** Misconfigured SUID binary allowed privilege escalation
+* **Impact:** Root-level access achieved
+
+**Proof:**
+
+* Exploited SUID binary
+* `whoami → root`
+* *(Add screenshot: root shell)*
+
+---
+
+## 🔗 Attack Chain
+
+```id="mrrobotchain"
+Reconnaissance
+   ↓
+robots.txt → Hidden Path Discovery
+   ↓
+Credential Enumeration → Login Access
+   ↓
+Reverse Shell → System Access
+   ↓
+SUID Exploit → Privilege Escalation → Root Access
+```
+
+---
+
+## 📊 Impact Assessment
+
+* Unauthorized access to web application
+* Credential compromise
+* Remote command execution
+* Full system takeover
+
+**Business Impact:**
+An attacker can gain complete control of the web server, access sensitive data, and escalate privileges to compromise the entire system.
+
+---
+
+## 🛠️ Mitigation & Defensive Measures
+
+* Restrict sensitive file exposure (robots.txt)
+* Enforce strong authentication policies
+* Validate file uploads and inputs
+* Remove unsafe SUID configurations
+* Apply principle of least privilege
+
+---
+
+## 🛠️ Tools Used
+
+* Nmap
+* Dirb / Gobuster
+* Burp Suite (optional if used)
+* Netcat
+* John the Ripper
+
+---
+
+## 📊 Key Takeaways
+
+* Information disclosure can lead to full compromise
+* Weak authentication enables attacker entry
+* Web vulnerabilities often lead to system-level compromise
+* Misconfigurations are critical security risks
 
 ## 🚩 Flags Captured
 
