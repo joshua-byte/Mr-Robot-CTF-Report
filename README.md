@@ -1,4 +1,4 @@
-# Web Application Penetration Test Case Study – Mr Robot Lab
+# Mr Robot CTF
 
 ## Overview
 
